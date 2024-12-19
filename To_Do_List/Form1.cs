@@ -27,5 +27,48 @@ namespace To_Do_List
             toDoListView.DataSource = todoList;
 
         }
+
+        private void newButton_Click(object sender, EventArgs e)
+        {
+            titleTextbox.Text ="";
+            descriptionTextbox.Text = "";
+
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            isEditing = true;
+
+            titleTextbox.Text = todoList.Rows[toDoListView.CurrentCell.RowIndex].ItemArray[0].ToString();
+            descriptionTextbox.Text= todoList.Rows[toDoListView.CurrentCell.RowIndex].ItemArray[0].ToString();
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                todoList.Rows[toDoListView.CurrentCell.RowIndex].Delete();
+            }
+            catch(Exception ex) {
+                Console.WriteLine("Error: "+ex.ToString());
+          
+            }
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if (isEditing)
+            {
+                todoList.Rows[toDoListView.CurrentCell.RowIndex]["Title"]= titleTextbox.Text;
+                todoList.Rows[toDoListView.CurrentCell.RowIndex]["Description"] = descriptionTextbox.Text;
+            }
+            else {
+            todoList.Rows.Add (titleTextbox.Text,descriptionTextbox.Text);
+
+            }
+            titleTextbox.Text = "";
+            descriptionTextbox.Text = "";
+            isEditing = false;
+        }
     }
 }
