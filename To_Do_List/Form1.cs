@@ -16,7 +16,9 @@ namespace To_Do_List
         {
             InitializeComponent();
         }
+        
         DataTable todoList = new DataTable();
+
         bool isEditing = false;
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -30,8 +32,8 @@ namespace To_Do_List
 
         private void newButton_Click(object sender, EventArgs e)
         {
-            titleTextbox.Text ="";
-            descriptionTextbox.Text = "";
+            textBox1.Text ="";
+            textBox2.Text = "";
 
         }
 
@@ -39,8 +41,8 @@ namespace To_Do_List
         {
             isEditing = true;
 
-            titleTextbox.Text = todoList.Rows[toDoListView.CurrentCell.RowIndex].ItemArray[0].ToString();
-            descriptionTextbox.Text= todoList.Rows[toDoListView.CurrentCell.RowIndex].ItemArray[0].ToString();
+            textBox1.Text = todoList.Rows[toDoListView.CurrentCell.RowIndex].ItemArray[0].ToString();
+            textBox2.Text= todoList.Rows[toDoListView.CurrentCell.RowIndex].ItemArray[1].ToString();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -59,16 +61,21 @@ namespace To_Do_List
         {
             if (isEditing)
             {
-                todoList.Rows[toDoListView.CurrentCell.RowIndex]["Title"]= titleTextbox.Text;
-                todoList.Rows[toDoListView.CurrentCell.RowIndex]["Description"] = descriptionTextbox.Text;
+                todoList.Rows[toDoListView.CurrentCell.RowIndex]["Title"]= textBox1.Text;
+                todoList.Rows[toDoListView.CurrentCell.RowIndex]["Description"] = textBox2.Text;
             }
             else {
-            todoList.Rows.Add (titleTextbox.Text,descriptionTextbox.Text);
+            todoList.Rows.Add (textBox1.Text, textBox2.Text);
 
             }
-            titleTextbox.Text = "";
-            descriptionTextbox.Text = "";
+            textBox1.Text = "";
+            textBox2.Text = "";
             isEditing = false;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

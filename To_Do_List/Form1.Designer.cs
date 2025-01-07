@@ -57,10 +57,11 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(1278, 30);
             this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 209);
+            this.textBox2.Location = new System.Drawing.Point(13, 208);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(1278, 30);
             this.textBox2.TabIndex = 2;
@@ -126,7 +127,7 @@
             this.toDoListView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.toDoListView.BackgroundColor = System.Drawing.Color.White;
             this.toDoListView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.toDoListView.Location = new System.Drawing.Point(12, 302);
+            this.toDoListView.Location = new System.Drawing.Point(17, 303);
             this.toDoListView.Name = "toDoListView";
             this.toDoListView.RowHeadersWidth = 51;
             this.toDoListView.RowTemplate.Height = 24;
